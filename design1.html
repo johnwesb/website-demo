@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 1 - Modern Impact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           COLOR SCIENCE & THEME VARIABLES
+           ========================================== */
+        :root {
+            /* Light Theme (Ocean Blue) */
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.03);
+            --shadow-lg: 0 15px 35px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme (Deep Midnight Blue) */
+            --bg-color: #0b1120;
+            --surface-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #7dd3fc;
+            --primary-light: #0c4a6e;
+            --border-color: #334155;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.3);
+            --shadow-lg: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        /* ==========================================
+           GLOBAL UI/UX RESETS
+           ========================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', 'Noto Sans Telugu', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding-bottom: 80px; /* Space for mobile nav */
+        }
+
+        img { max-width: 100%; border-radius: 12px; object-fit: cover; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+        /* ==========================================
+           TOP CONTROL BAR (Back, Theme, Lang)
+           ========================================== */
+        .controls-bar {
+            background: var(--surface-color);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .controls-bar a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .action-buttons { display: flex; gap: 10px; }
+        .icon-btn {
+            background: var(--primary-light); color: var(--primary);
+            border: none; padding: 0.5rem 1rem; border-radius: 50px;
+            font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;
+            transition: var(--transition);
+        }
+        .icon-btn:hover { background: var(--primary); color: #fff; }
+
+        /* ==========================================
+           DESKTOP HEADER
+           ========================================== */
+        header {
+            background: var(--surface-color);
+            padding: 1.2rem 5%; position: sticky; top: 0; z-index: 100;
+            box-shadow: var(--shadow-sm); transition: var(--transition);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+        .desktop-nav { display: none; gap: 2.5rem; }
+        .desktop-nav a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: var(--transition); }
+        .desktop-nav a:hover { color: var(--primary); }
+
+        /* ==========================================
+           HERO SECTION (Split Layout)
+           ========================================== */
+        .hero {
+            display: flex; flex-direction: column; gap: 2rem;
+            margin-top: 2rem; align-items: center; text-align: center;
+        }
+        .hero-text h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .hero-img { width: 100%; height: 300px; border-radius: 24px; box-shadow: var(--shadow-lg); }
+
+        /* ==========================================
+           ROOTS & CONTENT SECTIONS
+           ========================================== */
+        .roots-box {
+            background: var(--surface-color);
+            border-left: 4px solid var(--primary);
+            padding: 2rem; margin: 4rem 0; border-radius: 0 16px 16px 0;
+            box-shadow: var(--shadow-sm); transition: var(--transition);
+        }
+        .roots-box p { font-style: italic; color: var(--text-muted); font-size: 1.1rem; }
+        
+        .section-title { font-size: 2rem; text-align: center; margin-bottom: 2.5rem; color: var(--text-main); }
+
+        /* ==========================================
+           GRID & CARDS (Proper UI/UX)
+           ========================================== */
+        .grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; }
+        .card {
+            background: var(--surface-color); border-radius: 20px; padding: 1.5rem;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .card img { height: 200px; width: 100%; margin-bottom: 1.2rem; }
+        .card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.4rem; }
+        .card p { color: var(--text-muted); font-size: 1rem; }
+
+        /* ==========================================
+           CTA SECTION
+           ========================================== */
+        .cta-box {
+            background: var(--surface-color); border-radius: 24px; padding: 4rem 2rem;
+            text-align: center; border: 1px solid var(--border-color); margin-bottom: 4rem;
+            box-shadow: var(--shadow-sm); transition: var(--transition);
+        }
+        .cta-btn {
+            display: inline-block; background: var(--primary); color: #fff !important;
+            text-decoration: none; padding: 1.2rem 2.5rem; border-radius: 50px;
+            font-weight: 600; margin-top: 1.5rem; transition: transform 0.2s ease, background 0.3s ease;
+        }
+        .cta-btn:hover { background: var(--primary-hover); transform: scale(1.05); }
+
+        /* ==========================================
+           MOBILE BOTTOM APP NAV
+           ========================================== */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--surface-color); display: flex; justify-content: space-around;
+            padding: 1rem 0; box-shadow: 0 -10px 25px rgba(0,0,0,0.05);
+            border-top-left-radius: 24px; border-top-right-radius: 24px; z-index: 100;
+            transition: var(--transition); border-top: 1px solid var(--border-color);
+        }
+        .nav-item { text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+        .nav-item.active { color: var(--primary); }
+
+        /* ==========================================
+           ANIMATIONS (Scroll Triggers)
+           ========================================== */
+        .animate-up {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ==========================================
+           DESKTOP RESPONSIVENESS
+           ========================================== */
+        @media (min-width: 768px) {
+            body { padding-bottom: 0; }
+            .bottom-nav { display: none; }
+            .desktop-nav { display: flex; }
+            .hero { flex-direction: row; text-align: left; margin-top: 4rem; margin-bottom: 4rem; }
+            .hero-text { flex: 1; padding-right: 2rem; }
+            .hero-img { flex: 1; height: 450px; }
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Action Bar -->
+    <div class="controls-bar">
+        <a href="index.html">← Back to Showcase</a>
+        <div class="action-buttons">
+            <button class="icon-btn" onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+            <button class="icon-btn" onclick="toggleLanguage()"><span id="lang-text">తెలుగు</span></button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">HopeCore</div>
+        <nav class="desktop-nav">
+            <a href="#home" data-key="nav_home">Home</a>
+            <a href="#initiatives" data-key="nav_initiatives">Initiatives</a>
+            <a href="#about" data-key="nav_about">About</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero animate-up" id="home">
+            <div class="hero-text">
+                <h1 data-key="hero_title">Hope for Tomorrow</h1>
+                <p data-key="hero_desc">Empowering local families through food security, education, and community healthcare initiatives.</p>
+                <a href="#initiatives" class="cta-btn" data-key="nav_initiatives">See Our Work</a>
+            </div>
+            <!-- High Quality NGO Placeholder Image -->
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80" alt="Children smiling" class="hero-img">
+        </section>
+
+        <!-- Subtle Church Mention -->
+        <div class="roots-box animate-up" id="about">
+            <p data-key="church_text">"Founded on the fellowship and community values of [Church Name], we operate independently to serve everyone in our city with open arms."</p>
+        </div>
+
+        <h2 class="section-title animate-up" data-key="section_initiatives">Our Initiatives</h2>
+        
+        <!-- Interactive Cards Grid -->
+        <div class="grid" id="initiatives">
+            <div class="card animate-up">
+                <img src="https://images.unsplash.com/photo-1593113563332-ce6b7f15cd93?auto=format&fit=crop&w=600&q=80" alt="Food Delivery">
+                <h3 data-key="init_1_title">Food Security</h3>
+                <p data-key="init_1_desc">Every Sunday, our volunteers distribute fresh produce and pantry staples to over 50 local families in need.</p>
+            </div>
+            <div class="card animate-up" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Education">
+                <h3 data-key="init_2_title">Youth Education</h3>
+                <p data-key="init_2_desc">Providing a safe space, internet access, and dedicated mentorship for youth to complete their studies.</p>
+            </div>
+            <div class="card animate-up" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?auto=format&fit=crop&w=600&q=80" alt="Medical Camp">
+                <h3 data-key="init_3_title">Medical Aid</h3>
+                <p data-key="init_3_desc">Organizing free medical camps, regular checkups, and providing emergency assistance to those in need.</p>
+            </div>
+        </div>
+
+        <!-- Volunteer CTA -->
+        <div class="cta-box animate-up">
+            <h2 data-key="cta_title" style="margin-bottom: 1rem;">Get Involved</h2>
+            <p data-key="cta_desc" style="color: var(--text-muted); margin-bottom: 2rem;">We are always looking for passionate volunteers to help us build a stronger, healthier community.</p>
+            <a href="mailto:contact@ngo.org" class="cta-btn" data-key="cta_btn">Contact Us to Volunteer</a>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom App Navigation -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active" data-key="nav_home">Home</a>
+        <a href="#initiatives" class="nav-item" data-key="nav_initiatives">Initiatives</a>
+        <a href="#about" class="nav-item" data-key="nav_about">About</a>
+    </nav>
+
+    <!-- UI/UX JAVASCRIPT ENGINE -->
+    <script>
+        // 1. Scroll Animations (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-up').forEach((el) => observer.observe(el));
+
+        // 2. Dark Mode Toggle
+        let isDark = false;
+        function toggleTheme() {
+            isDark = !isDark;
+            document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-btn').innerText = isDark ? '☀️ Light' : '🌙 Dark';
+        }
+
+        // 3. English / Telugu Translation Dictionary
+        const dictionary = {
+            en: {
+                nav_home: "Home", nav_initiatives: "Initiatives", nav_about: "About",
+                hero_title: "Hope for Tomorrow", hero_desc: "Empowering local families through food security, education, and community healthcare initiatives.",
+                church_text: '"Founded on the fellowship and community values of [Church Name], we operate independently to serve everyone in our city with open arms."',
+                section_initiatives: "Our Initiatives",
+                init_1_title: "Food Security", init_1_desc: "Every Sunday, our volunteers distribute fresh produce and pantry staples to over 50 local families in need.",
+                init_2_title: "Youth Education", init_2_desc: "Providing a safe space, internet access, and dedicated mentorship for youth to complete their studies.",
+                init_3_title: "Medical Aid", init_3_desc: "Organizing free medical camps, regular checkups, and providing emergency assistance to those in need.",
+                cta_title: "Get Involved", cta_desc: "We are always looking for passionate volunteers to help us build a stronger, healthier community.",
+                cta_btn: "Contact Us to Volunteer", toggle_btn: "తెలుగు"
+            },
+            te: {
+                nav_home: "హోమ్", nav_initiatives: "కార్యక్రమాలు", nav_about: "మా గురించి",
+                hero_title: "రేపటి కోసం ఆశ", hero_desc: "ఆహార భద్రత, విద్య మరియు సామాజిక ఆరోగ్య సేవల ద్వారా స్థానిక కుటుంబాలకు సాధికారత కల్పిస్తున్నాము.",
+                church_text: '"[చర్చి పేరు] అందించిన సేవా దృక్పథం మరియు స్ఫూర్తితో ప్రారంభమై, కులమతాలకు అతీతంగా సమాజంలోని ప్రతి ఒక్కరికీ మేము సేవలందిస్తున్నాము."',
+                section_initiatives: "మా కార్యక్రమాలు",
+                init_1_title: "ఆహార భద్రత", init_1_desc: "ప్రతి ఆదివారం, మా వాలంటీర్లు 50కి పైగా స్థానిక కుటుంబాలకు తాజా కూరగాయలు మరియు నిత్యావసరాలను పంపిణీ చేస్తారు.",
+                init_2_title: "యువతకు విద్య", init_2_desc: "యువత తమ చదువును పూర్తి చేయడానికి సురక్షితమైన ప్రదేశం, ఇంటర్నెట్ సదుపాయం మరియు మార్గదర్శకత్వం అందిస్తున్నాము.",
+                init_3_title: "వైద్య సహాయం", init_3_desc: "ఉచిత వైద్య శిబిరాలు నిర్వహించడం మరియు అవసరమైన వారికి అత్యవసర సహాయం అందించడం.",
+                cta_title: "మాతో చేరండి", cta_desc: "సమాజాన్ని బలోపేతం చేయడంలో మాకు సహాయపడటానికి మేము ఎల్లప్పుడూ ఆసక్తిగల వాలంటీర్ల కోసం చూస్తున్నాము.",
+                cta_btn: "వాలంటీర్ గా చేరడానికి సంప్రదించండి", toggle_btn: "English"
+            }
+        };
+
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'te' : 'en';
+            document.getElementById('lang-text').innerText = dictionary[currentLang].toggle_btn;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (dictionary[currentLang][key]) el.innerText = dictionary[currentLang][key];
+            });
+        }
+    </script>
+</body>
+</html>
