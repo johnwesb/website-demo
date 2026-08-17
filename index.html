@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeCore NGO</title>
+    <!-- Importing a modern, free font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f8fafc; color: #1e293b; padding-bottom: 80px; } /* Padding for bottom nav */
+        
+        /* Top Header */
+        header { background: #ffffff; padding: 1.2rem 5%; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #0284c7; letter-spacing: -0.5px; }
+        
+        /* Hero App Banner */
+        .hero { background: #0284c7; color: white; padding: 3rem 5%; text-align: center; border-radius: 0 0 24px 24px; margin-bottom: 2rem; }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        .hero p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        
+        /* App-Style Cards Feed */
+        .container { padding: 0 5%; max-width: 600px; margin: 0 auto; }
+        .card { background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+        .card h3 { color: #0f172a; margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .card p { color: #64748b; font-size: 0.9rem; line-height: 1.5; }
+        .card-img-placeholder { background: #e2e8f0; height: 160px; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.8rem; }
+
+        /* Subtle Church Roots section */
+        .roots-section { background: #f0f9ff; border-radius: 12px; padding: 1.5rem; margin: 2rem 0; text-align: center; }
+        .roots-section p { color: #0369a1; font-style: italic; font-size: 0.9rem; }
+
+        /* Direct UPI Payment Button */
+        .donate-card { background: #1e293b; color: white; text-align: center; border-radius: 20px; padding: 2rem 1.5rem; margin-top: 2rem; }
+        .upi-btn { display: inline-block; background: #22c55e; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; margin-top: 1rem; width: 100%; text-align: center; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
+        .upi-details { margin-top: 1rem; font-size: 0.85rem; color: #94a3b8; }
+        
+        /* Mobile Bottom Navigation Bar */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; display: flex; justify-content: space-around; padding: 1rem 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-top-right-radius: 20px; z-index: 100; }
+        .nav-item { text-decoration: none; color: #64748b; font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .nav-item.active { color: #0284c7; }
+        .nav-icon { width: 24px; height: 24px; background: currentColor; border-radius: 4px; opacity: 0.2; } /* Placeholder for real icons */
+        .nav-item.active .nav-icon { opacity: 1; }
+
+        @media (min-width: 768px) {
+            .bottom-nav { display: none; }
+            body { padding-bottom: 0; }
+            .hero { border-radius: 24px; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">HopeCore</div>
+    </header>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <h1>Hope for Tomorrow</h1>
+            <p>Empowering local families through food security and education.</p>
+        </section>
+
+        <!-- Our Roots (Subtle Church Mention) -->
+        <div class="roots-section">
+            <p>"Founded on the fellowship and community values of [Church Name], we operate independently to serve everyone in our city with open arms."</p>
+        </div>
+
+        <h2 style="margin-bottom: 1rem; font-size: 1.3rem; color: #0f172a;">Recent Initiatives</h2>
+        
+        <div class="card" id="initiatives">
+            <div class="card-img-placeholder">[Client Photo: Food Drive]</div>
+            <h3>Weekly Grocery Distribution</h3>
+            <p>Every Sunday, our volunteers distribute fresh produce and pantry staples to over 50 local families.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder">[Client Photo: Tutoring]</div>
+            <h3>After-School Program</h3>
+            <p>Providing a safe space, internet access, and mentorship for youth to complete their studies.</p>
+        </div>
+
+        <!-- The UPI Payment Section -->
+        <div class="donate-card" id="donate">
+            <h2 style="margin-bottom: 0.5rem;">Support Our Work</h2>
+            <p style="font-size: 0.9rem; opacity: 0.9;">Your contribution directly funds our community pantry.</p>
+            
+            <!-- MAGIC UPI LINK: When clicked on a phone, this opens GPay/PhonePe directly -->
+            <a href="upi://pay?pa=your-ngo-upi-id@okhdfcbank&pn=HopeCore%20NGO&cu=INR" class="upi-btn">
+                Donate via UPI
+            </a>
+            
+            <p class="upi-details">Or scan our QR / UPI ID: your-ngo-upi-id@okhdfcbank</p>
+        </div>
+    </div>
+
+    <!-- Mobile App-Style Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active">
+            <div class="nav-icon"></div>
+            Home
+        </a>
+        <a href="#initiatives" class="nav-item">
+            <div class="nav-icon"></div>
+            Initiatives
+        </a>
+        <a href="#donate" class="nav-item">
+            <div class="nav-icon"></div>
+            Donate
+        </a>
+    </nav>
+
+</body>
+</html>
