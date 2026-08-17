@@ -3,314 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopeCore NGO</title>
-    
-    <!-- Professional Google Fonts for English and Telugu -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
-    
+    <title>NGO Website Design Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for Premium Theming */
-        :root {
-            --primary: #0369a1; /* Deep Ocean Blue */
-            --primary-light: #e0f2fe;
-            --text-dark: #0f172a;
-            --text-gray: #475569;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 3rem 5%; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 3.5rem; }
+        .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1rem; }
+        .header h1 { font-size: 2.4rem; font-weight: 800; color: #0f172a; margin-bottom: 0.8rem; }
+        .header p { color: #64748b; font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
         
-        body { 
-            font-family: 'Inter', 'Noto Sans Telugu', sans-serif; 
-            background-color: var(--bg-light); 
-            color: var(--text-dark); 
-            line-height: 1.6;
-        }
-
-        /* Container for Desktop Centering */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* Desktop Header */
-        header {
-            background: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: -0.5px; }
-
-        /* Desktop Links (Hidden on Mobile) */
-        .desktop-nav { display: none; gap: 2rem; align-items: center; }
-        .desktop-nav a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: var(--transition); }
-        .desktop-nav a:hover { color: var(--primary); }
-
-        /* Language Toggle Button */
-        .lang-btn {
-            background: var(--primary-light);
-            color: var(--primary);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .lang-btn:hover { background: var(--primary); color: var(--white); }
-
-        /* Premium Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #0c4a6e 100%);
-            color: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 4rem 5%;
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-bottom: 2rem; }
-
-        /* Subtle Church Roots section */
-        .roots-section {
-            background: var(--white);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 3rem 0;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            box-shadow: var(--shadow);
-        }
-        .roots-section p { color: var(--text-gray); font-style: italic; font-size: 1.05rem; }
-
-        /* Grid for Initiatives */
-        .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--text-dark); text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: white; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .card-preview { height: 140px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem; }
         
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
+        .p1 { background: linear-gradient(135deg, #0284c7, #0369a1); }
+        .p2 { background: linear-gradient(135deg, #059669, #047857); }
+        .p3 { background: linear-gradient(135deg, #d97706, #b45309); }
+        .p4 { background: linear-gradient(135deg, #0d9488, #e11d48); }
+        .p5 { background: linear-gradient(135deg, #334155, #1e293b); }
 
-        .card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid #f1f5f9;
-            transition: var(--transition);
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.3rem; }
-        .card p { color: var(--text-gray); }
-
-        /* Call to Action (Replaced Payment) */
-        .cta-box {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 3rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            margin-bottom: 5rem;
-            border: 1px solid #e2e8f0;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            transition: var(--transition);
-        }
-        .cta-btn:hover { transform: scale(1.05); background: #0c4a6e; }
-
-        /* Mobile Bottom Nav (Hidden on Desktop) */
-        .bottom-nav { display: none; }
-
-        /* RESPONSIVE DESIGN: MOBILE SETTINGS */
-        @media (max-width: 768px) {
-            body { padding-bottom: 80px; } /* Space for bottom nav */
-            .desktop-nav { display: none; } /* Hide desktop links */
-            .hero { border-radius: 0 0 24px 24px; margin-top: 0; padding: 3rem 1.5rem; }
-            .hero h1 { font-size: 2rem; }
-            
-            /* Show Mobile Bottom Nav */
-            .bottom-nav {
-                display: flex;
-                position: fixed;
-                bottom: 0; left: 0; right: 0;
-                background: var(--white);
-                justify-content: space-around;
-                padding: 1rem 0;
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
-                z-index: 1000;
-            }
-            .nav-item { text-decoration: none; color: var(--text-gray); font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-            .nav-item.active { color: var(--primary); }
-        }
-
-        /* RESPONSIVE DESIGN: DESKTOP SETTINGS */
-        @media (min-width: 769px) {
-            .desktop-nav { display: flex; }
-            .grid { grid-template-columns: repeat(3, 1fr); }
-            header { padding: 1.5rem 0; }
-        }
+        .card-body { padding: 1.8rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #0f172a; }
+        .card-desc { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .tag { font-size: 0.75rem; background: #f1f5f9; color: #475569; padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 600; }
+        .btn { display: block; text-align: center; background: #0f172a; color: white; text-decoration: none; padding: 0.85rem; border-radius: 12px; font-weight: 600; transition: 0.2s; }
+        .btn:hover { background: #0284c7; }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container nav-wrapper">
-            <div class="logo">HopeCore</div>
-            <div class="desktop-nav">
-                <a href="#home" data-key="nav_home">Home</a>
-                <a href="#initiatives" data-key="nav_initiatives">Initiatives</a>
-                <a href="#about" data-key="nav_about">About</a>
-            </div>
-            <!-- Language Toggle -->
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <span id="lang-text">తెలుగు</span>
-            </button>
-        </div>
-    </header>
-
     <div class="container">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <h1 data-key="hero_title">Hope for Tomorrow</h1>
-            <p data-key="hero_desc">Empowering local families through food security and education.</p>
-        </section>
-
-        <!-- Church Roots -->
-        <div class="roots-section" id="about">
-            <p data-key="church_text">"Founded on the fellowship and community values of [Church Name], we operate independently to serve everyone in our city with open arms."</p>
+        <div class="header">
+            <span class="badge">Client Design Review</span>
+            <h1>NGO Website Concepts</h1>
+            <p>Select any design to test the live, interactive prototype. Each concept features responsive mobile app views and an instant English ↔ Telugu language toggle.</p>
         </div>
 
-        <h2 class="section-title" data-key="section_initiatives">Our Initiatives</h2>
-        
-        <div class="grid" id="initiatives">
-            <!-- Card 1 -->
+        <div class="grid">
+            <!-- Option 1 -->
             <div class="card">
-                <h3 data-key="init_1_title">Food Security</h3>
-                <p data-key="init_1_desc">Every Sunday, our volunteers distribute fresh produce and pantry staples to over 50 local families.</p>
+                <div class="card-preview p1">Concept 1</div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Modern Impact</h2>
+                        <p class="card-desc">Tech-forward ocean blue aesthetic with crisp typography, card grids, and high visual contrast.</p>
+                        <div class="tags"><span class="tag">Ocean Blue</span><span class="tag">App Bottom Bar</span><span class="tag">Telugu Ready</span></div>
+                    </div>
+                    <a href="design1.html" class="btn">View Prototype 1 →</a>
+                </div>
             </div>
-            <!-- Card 2 -->
-            <div class="card">
-                <h3 data-key="init_2_title">Youth Education</h3>
-                <p data-key="init_2_desc">Providing a safe space, internet access, and mentorship for youth to complete their studies.</p>
-            </div>
-            <!-- Card 3 -->
-            <div class="card">
-                <h3 data-key="init_3_title">Medical Aid</h3>
-                <p data-key="init_3_desc">Organizing free medical camps and providing emergency assistance to those in need.</p>
-            </div>
-        </div>
 
-        <!-- Contact / Volunteer CTA (Replaced Payments) -->
-        <div class="cta-box">
-            <h2 style="color: #0f172a; margin-bottom: 0.5rem;" data-key="cta_title">Get Involved</h2>
-            <p style="color: #475569;" data-key="cta_desc">We are always looking for passionate volunteers to help us build a stronger community.</p>
-            <a href="mailto:contact@ngo.org" class="cta-btn" data-key="cta_btn">Contact Us to Volunteer</a>
+            <!-- Option 2 -->
+            <div class="card">
+                <div class="card-preview p2">Concept 2</div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Clean Emerald & Earth</h2>
+                        <p class="card-desc">Minimalist, organic green palette prioritizing clean white space, clarity, and readability.</p>
+                        <div class="tags"><span class="tag">Emerald Green</span><span class="tag">Minimalist</span><span class="tag">Telugu Ready</span></div>
+                    </div>
+                    <a href="design2.html" class="btn">View Prototype 2 →</a>
+                </div>
+            </div>
+
+            <!-- Option 3 -->
+            <div class="card">
+                <div class="card-preview p3">Concept 3</div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Warm Community Hub</h2>
+                        <p class="card-desc">Warm terracotta and amber tones focused on storytelling, compassion, and human connection.</p>
+                        <div class="tags"><span class="tag">Amber & Warmth</span><span class="tag">Story-First</span><span class="tag">Telugu Ready</span></div>
+                    </div>
+                    <a href="design3.html" class="btn">View Prototype 3 →</a>
+                </div>
+            </div>
+
+            <!-- Option 4 -->
+            <div class="card">
+                <div class="card-preview p4">Concept 4</div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Dynamic Action</h2>
+                        <p class="card-desc">High-energy teal and coral accents designed to engage younger volunteers and active outreach.</p>
+                        <div class="tags"><span class="tag">Teal & Coral</span><span class="tag">Youth Focused</span><span class="tag">Telugu Ready</span></div>
+                    </div>
+                    <a href="design4.html" class="btn">View Prototype 4 →</a>
+                </div>
+            </div>
+
+            <!-- Option 5 -->
+            <div class="card">
+                <div class="card-preview p5">Concept 5</div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Institutional Trust</h2>
+                        <p class="card-desc">Deep slate and navy scheme emphasizing credibility, structured initiatives, and organizational strength.</p>
+                        <div class="tags"><span class="tag">Slate & Navy</span><span class="tag">Formal</span><span class="tag">Telugu Ready</span></div>
+                    </div>
+                    <a href="design5.html" class="btn">View Prototype 5 →</a>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Mobile Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="#home" class="nav-item active" data-key="nav_home">Home</a>
-        <a href="#initiatives" class="nav-item" data-key="nav_initiatives">Initiatives</a>
-        <a href="#about" class="nav-item" data-key="nav_about">About</a>
-    </nav>
-
-    <!-- TRANSLATION ENGINE -->
-    <script>
-        // The Dictionary containing English and Telugu text
-        const dictionary = {
-            en: {
-                nav_home: "Home",
-                nav_initiatives: "Initiatives",
-                nav_about: "About",
-                hero_title: "Hope for Tomorrow",
-                hero_desc: "Empowering local families through food security and education.",
-                church_text: '"Founded on the fellowship and community values of [Church Name], we operate independently to serve everyone in our city with open arms."',
-                section_initiatives: "Our Initiatives",
-                init_1_title: "Food Security",
-                init_1_desc: "Every Sunday, our volunteers distribute fresh produce and pantry staples to over 50 local families.",
-                init_2_title: "Youth Education",
-                init_2_desc: "Providing a safe space, internet access, and mentorship for youth to complete their studies.",
-                init_3_title: "Medical Aid",
-                init_3_desc: "Organizing free medical camps and providing emergency assistance to those in need.",
-                cta_title: "Get Involved",
-                cta_desc: "We are always looking for passionate volunteers to help us build a stronger community.",
-                cta_btn: "Contact Us to Volunteer",
-                toggle_btn: "తెలుగు" // When in English, button says 'Switch to Telugu'
-            },
-            te: {
-                nav_home: "హోమ్",
-                nav_initiatives: "కార్యక్రమాలు",
-                nav_about: "మా గురించి",
-                hero_title: "రేపటి కోసం ఆశ",
-                hero_desc: "ఆహార భద్రత మరియు విద్య ద్వారా స్థానిక కుటుంబాలకు సాధికారత కల్పిస్తున్నాము.",
-                church_text: '"[చర్చి పేరు] అందించిన సేవా దృక్పథం మరియు స్ఫూర్తితో ప్రారంభమై, కులమతాలకు అతీతంగా సమాజంలోని ప్రతి ఒక్కరికీ మేము సేవలందిస్తున్నాము."',
-                section_initiatives: "మా కార్యక్రమాలు",
-                init_1_title: "ఆహార భద్రత",
-                init_1_desc: "ప్రతి ఆదివారం, మా వాలంటీర్లు 50కి పైగా స్థానిక కుటుంబాలకు తాజా కూరగాయలు మరియు నిత్యావసరాలను పంపిణీ చేస్తారు.",
-                init_2_title: "యువతకు విద్య",
-                init_2_desc: "యువత తమ చదువును పూర్తి చేయడానికి సురక్షితమైన ప్రదేశం, ఇంటర్నెట్ సదుపాయం మరియు మార్గదర్శకత్వం అందిస్తున్నాము.",
-                init_3_title: "వైద్య సహాయం",
-                init_3_desc: "ఉచిత వైద్య శిబిరాలు నిర్వహించడం మరియు అవసరమైన వారికి అత్యవసర సహాయం అందించడం.",
-                cta_title: "మాతో చేరండి",
-                cta_desc: "సమాజాన్ని బలోపేతం చేయడంలో మాకు సహాయపడటానికి మేము ఎల్లప్పుడూ ఆసక్తిగల వాలంటీర్ల కోసం చూస్తున్నాము.",
-                cta_btn: "వాలంటీర్ గా చేరడానికి సంప్రదించండి",
-                toggle_btn: "English" // When in Telugu, button says 'Switch to English'
-            }
-        };
-
-        let currentLang = 'en';
-
-        function toggleLanguage() {
-            // Switch the language variable
-            currentLang = currentLang === 'en' ? 'te' : 'en';
-            
-            // Update the button text
-            document.getElementById('lang-text').innerText = dictionary[currentLang].toggle_btn;
-
-            // Find all elements with a 'data-key' attribute and update their text
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (dictionary[currentLang][key]) {
-                    el.innerText = dictionary[currentLang][key];
-                }
-            });
-        }
-    </script>
 </body>
 </html>
